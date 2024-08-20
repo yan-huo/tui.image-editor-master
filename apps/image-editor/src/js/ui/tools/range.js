@@ -33,7 +33,7 @@ class Range {
     this.rangeInputElement = rangeElements.input;
 
     this._drawRangeElement();
-    this._changeRangeElementDisabledStat(this._disabled);
+    this._changeRangeElementDisabled(this._disabled);
 
     this.rangeWidth = this._getRangeWidth();
     this._min = options.min || 0;
@@ -82,10 +82,10 @@ class Range {
 
   set disabled(val) {
     this._disabled = val;
-    this._changeRangeElementDisabledStat(val);
+    this._changeRangeElementDisabled(val);
   }
 
-  _changeRangeElementDisabledStat(val) {
+  _changeRangeElementDisabled(val) {
     if (val) {
       this.rangeElement.classList.add('tui-image-editor-disabled');
     } else {

@@ -354,6 +354,7 @@ export const defaultFilterRangeValues = {
     useDecimal: true,
   },
   removewhiteDistanceRange: {
+    disabled: true,
     realTimeEvent: true,
     min: 0,
     max: 1,
@@ -361,6 +362,7 @@ export const defaultFilterRangeValues = {
     useDecimal: true,
   },
   brightnessRange: {
+    disabled: true,
     realTimeEvent: true,
     min: -1,
     max: 1,
@@ -368,18 +370,21 @@ export const defaultFilterRangeValues = {
     useDecimal: true,
   },
   noiseRange: {
+    disabled: true,
     realTimeEvent: true,
     min: 0,
     max: 1000,
     value: 100,
   },
   pixelateRange: {
+    disabled: true,
     realTimeEvent: true,
     min: 2,
     max: 20,
     value: 4,
   },
   colorfilterThresholdRange: {
+    disabled: true,
     realTimeEvent: true,
     min: 0,
     max: 1,

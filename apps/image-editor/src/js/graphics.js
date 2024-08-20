@@ -139,6 +139,7 @@ class Graphics {
      */
     this._handler = {
       onMouseDown: this._onMouseDown.bind(this),
+      // onMouseWheel: this._onMouseWheel.bind(this),
       onObjectAdded: this._onObjectAdded.bind(this),
       onObjectRemoved: this._onObjectRemoved.bind(this),
       onObjectMoved: this._onObjectMoved.bind(this),
@@ -1089,6 +1090,7 @@ class Graphics {
     const handler = this._handler;
     canvas.on({
       'mouse:down': handler.onMouseDown,
+      'mouse:wheel': handler.onMouseWheel,
       'object:added': handler.onObjectAdded,
       'object:removed': handler.onObjectRemoved,
       'object:moving': handler.onObjectMoved,
@@ -1122,6 +1124,53 @@ class Graphics {
 
     this.fire(events.MOUSE_DOWN, event, originPointer);
   }
+
+  /*
+   * "mouse:wheel" canvas event handler zoomIn zoomOut
+   * */
+  // _onMouseWheel(fEvent) {
+  //   const zoomMode = this.getZoomMode();
+  //   if (zoomMode !== 'zoom') {
+  //     return;
+  //   }
+  //   const { e: event } = fEvent;
+  //   event.preventDefault();
+  //   const zoom = this.getComponent(components.ZOOM);
+  //   let { zoomLevel } = zoom;
+  //   const originPointer = this._canvas.getPointer(event);
+  //   const delta = event.wheelDelta ? event.wheelDelta : -event.detail;
+  //   const canvas = zoom.getCanvas();
+  //   const { x, y } = originPointer;
+  //   const prevZoomLevel = zoomLevel;
+  //   if (delta > 0) {
+  //     zoomLevel += 0.1;
+  //   } else {
+  //     zoomLevel -= 0.1;
+  //   }
+  //   if (zoomLevel < 1) {
+  //     zoomLevel = 1;
+  //   } else if (zoomLevel > 5) {
+  //     zoomLevel = 5;
+  //   }
+  //   if (delta > 0) {
+  //     zoom._centerPoints.push({
+  //       x,
+  //       y,
+  //       prevZoomLevel,
+  //       zoomLevel,
+  //     });
+  //   } else {
+  //     zoom._centerPoints.pop();
+  //   }
+  //   if (zoom._isDefaultZoomLevel(zoomLevel)) {
+  //     zoom._centerPoints = [];
+  //     canvas.setViewportTransform([1, 0, 0, 1, 0, 0]);
+  //   } else {
+  //     canvas.zoomToPoint({ x, y }, zoomLevel);
+  //   }
+  //   zoom.zoomLevel = zoomLevel;
+  //   zoom._fireZoomChanged(canvas, zoomLevel);
+  // }
 
   /**
    * "object:added" canvas event handler
